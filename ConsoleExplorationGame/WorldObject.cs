@@ -11,8 +11,8 @@ namespace ConsoleExplorationGame
 {
     public struct Vector2D
     {
-        int x;
-        int y;
+        public int x;
+        public int y;
 
         public Vector2D(int x1, int y1)
         {
@@ -31,20 +31,26 @@ namespace ConsoleExplorationGame
 
     public class WorldObject
     {
-        public ObjectType objectType;
-        public Vector2D objectLocation; 
-        public string objectName;
-        public string objectLook;
-        public static List<WorldObject> worldObjects;
+        public ObjectType objectType;   // TYPE of object
+        public string objectName;       // NAME of the object
+        public string objectLook;       // LOOK of the object
+        public Vector2D objectLocation; // LOCATION of the object
+        public static List<WorldObject> worldObjects; //All objects that exist in the GameWorld
 
-        public WorldObject(Vector2D v, string n = "Unnamed", ObjectType o = ObjectType.Default, string ol = "")
+        public WorldObject(int x = 0, int y= 0, string n = "Unnamed", ObjectType o = ObjectType.Default, string ol = "")
         {
             objectType = o;
             objectName = n;
-            objectLocation = v;
             objectLook = ol;
+            objectLocation = new Vector2D(x, y);
 
-            worldObjects.Add(new WorldObject(objectLocation,objectName,objectType,objectLook));
+            worldObjects = new List<WorldObject>();
+            //worldObjects.Add(new WorldObject(objectLocation.x, objectLocation.y, objectName,objectType,objectLook));
+        }
+        
+        public static void AddToWorldObjects(WorldObject g)
+        {
+            worldObjects.Add(g);
         }
     }
 }

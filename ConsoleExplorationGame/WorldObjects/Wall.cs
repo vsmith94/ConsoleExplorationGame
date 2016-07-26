@@ -8,9 +8,12 @@ namespace ConsoleExplorationGame.WorldObjects
 {
     public class Wall : WorldObject
     {
-        public Wall() : base(new Vector2D(0,0))
+        public Wall(Vector2D v)
         {
-
+            objectName = "Wall";
+            objectType = ObjectType.Wall;
+            objectLook = "#";
+            objectLocation = v;
         }
     }
 }

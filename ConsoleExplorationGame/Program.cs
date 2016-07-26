@@ -10,6 +10,11 @@ namespace ConsoleExplorationGame
     {
         static void Main(string[] args)
         {
+            Map map = new Map(20,15);
+
+            map.DrawMap();
+
+            Console.ReadLine();
         }
     }
 }
